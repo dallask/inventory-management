@@ -171,3 +171,69 @@ class TestDashboardEndpoints:
 
         # Allow small floating point differences
         assert abs(dashboard_data["total_inventory_value"] - expected_value) < 0.01
+
+    # ── Additional filter coverage ────────────────────────────────────────────
+
+    def test_dashboard_with_quarter_filter(self, client):
+        """Test dashboard summary accepts Q1-2025 quarter format."""
+        response = client.get("/api/dashboard/summary?month=Q1-2025")
+        assert response.status_code == 200
+
+        data = response.json()
+        assert isinstance(data, dict)
+        assert "total_orders_value" in data
+        assert data["total_orders_value"] >= 0
+
+    def test_dashboard_with_tokyo_warehouse(self, client):
+        """Test dashboard summary filtered to Tokyo warehouse."""
+        response = client.get("/api/dashboard/summary?warehouse=Tokyo")
+        assert response.status_code == 200
+
+        data = response.json()
+        assert data["total_inventory_value"] >= 0
+        assert data["total_orders_value"] >= 0
+
+    def test_dashboard_unknown_warehouse_returns_zeros(self, client):
+        """Test that an unknown warehouse returns zeros, not an error."""
+        response = client.get("/api/dashboard/summary?warehouse=Atlantis")
+        assert response.status_code == 200
+
+        data = response.json()
+        assert data["total_inventory_value"] == 0
+        assert data["total_orders_value"] == 0
+        assert data["pending_orders"] == 0
+
+    # ── total_backlog_items is filter-independent ─────────────────────────────
+
+    def test_backlog_count_unaffected_by_warehouse_filter(self, client):
+        """Test that total_backlog_items is not filtered by warehouse."""
+        unfiltered = client.get("/api/dashboard/summary").json()
+        filtered = client.get("/api/dashboard/summary?warehouse=London").json()
+
+        assert filtered["total_backlog_items"] == unfiltered["total_backlog_items"], (
+            "total_backlog_items should be the same regardless of warehouse filter"
+        )
+
+    def test_backlog_count_unaffected_by_status_filter(self, client):
+        """Test that total_backlog_items is not filtered by status."""
+        unfiltered = client.get("/api/dashboard/summary").json()
+        filtered = client.get("/api/dashboard/summary?status=Delivered").json()
+
+        assert filtered["total_backlog_items"] == unfiltered["total_backlog_items"]
+
+    def test_backlog_count_matches_raw_backlog_endpoint(self, client):
+        """Test that total_backlog_items matches /api/backlog list length."""
+        dashboard = client.get("/api/dashboard/summary").json()
+        backlog = client.get("/api/backlog").json()
+
+        assert dashboard["total_backlog_items"] == len(backlog)
+
+    # ── Filtered inventory value cross-validation ─────────────────────────────
+
+    def test_filtered_inventory_value_matches_warehouse_filter(self, client):
+        """Test that London-filtered dashboard value matches manual calculation."""
+        inventory = client.get("/api/inventory?warehouse=London").json()
+        expected = sum(i["quantity_on_hand"] * i["unit_cost"] for i in inventory)
+
+        dashboard = client.get("/api/dashboard/summary?warehouse=London").json()
+        assert abs(dashboard["total_inventory_value"] - expected) < 0.01
