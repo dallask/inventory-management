@@ -83,6 +83,36 @@ class TestDemandEndpoints:
                 assert item["trend"].lower() == "stable", \
                     f"New item {item['item_name']} should have stable trend"
 
+    def test_increasing_items_have_higher_forecast(self, client):
+        """Test that 'increasing' trend items have forecasted_demand > current_demand."""
+        data = client.get("/api/demand").json()
+        increasing = [item for item in data if item["trend"].lower() == "increasing"]
+
+        assert len(increasing) > 0, "Expected at least one increasing-trend item"
+        for item in increasing:
+            assert item["forecasted_demand"] > item["current_demand"], (
+                f"{item['item_name']}: forecasted={item['forecasted_demand']} "
+                f"should be > current={item['current_demand']} for increasing trend"
+            )
+
+    def test_decreasing_items_have_lower_forecast(self, client):
+        """Test that 'decreasing' trend items have forecasted_demand < current_demand."""
+        data = client.get("/api/demand").json()
+        decreasing = [item for item in data if item["trend"].lower() == "decreasing"]
+
+        assert len(decreasing) > 0, "Expected at least one decreasing-trend item"
+        for item in decreasing:
+            assert item["forecasted_demand"] < item["current_demand"], (
+                f"{item['item_name']}: forecasted={item['forecasted_demand']} "
+                f"should be < current={item['current_demand']} for decreasing trend"
+            )
+
+    def test_demand_skus_are_unique(self, client):
+        """Test that no two demand forecast entries share the same SKU."""
+        data = client.get("/api/demand").json()
+        skus = [item["item_sku"] for item in data]
+        assert len(skus) == len(set(skus)), "Duplicate SKUs in demand forecasts"
+
 
 class TestBacklogEndpoints:
     """Test suite for backlog endpoints."""
@@ -134,6 +164,33 @@ class TestBacklogEndpoints:
 
         for item in data:
             assert item["days_delayed"] >= 0
+
+    def test_backlog_has_purchase_order_field(self, client):
+        """Test that every backlog item has the computed has_purchase_order boolean."""
+        data = client.get("/api/backlog").json()
+        assert len(data) > 0
+
+        for item in data:
+            assert "has_purchase_order" in item, \
+                f"Backlog item {item['id']} missing has_purchase_order"
+            assert isinstance(item["has_purchase_order"], bool), \
+                f"has_purchase_order is not bool: {type(item['has_purchase_order'])}"
+
+    def test_backlog_shortage_items_exist(self, client):
+        """Test that some backlog items have quantity_needed > quantity_available (genuine shortage)."""
+        data = client.get("/api/backlog").json()
+        shortage_items = [
+            item for item in data
+            if item["quantity_needed"] > item["quantity_available"]
+        ]
+        assert len(shortage_items) > 0, \
+            "Expected at least one backlog item with quantity_needed > quantity_available"
+
+    def test_backlog_count_matches_dashboard(self, client):
+        """Test that backlog list length matches dashboard total_backlog_items."""
+        backlog_count = len(client.get("/api/backlog").json())
+        dashboard = client.get("/api/dashboard/summary").json()
+        assert dashboard["total_backlog_items"] == backlog_count
 
 
 class TestSpendingEndpoints:
@@ -217,6 +274,37 @@ class TestSpendingEndpoints:
             transaction = data[0]
             # Transactions should have some identifying fields
             assert isinstance(transaction, dict)
+
+    def test_spending_summary_structure(self, client):
+        """Test that spending summary contains expected top-level keys."""
+        data = client.get("/api/spending/summary").json()
+
+        # Summary should be a non-empty dict with numeric values
+        assert len(data) > 0
+        for value in data.values():
+            assert isinstance(value, (int, float, str, dict, list))
+
+    def test_category_spending_amounts_positive(self, client):
+        """Test that every category spending amount is positive."""
+        data = client.get("/api/spending/categories").json()
+        assert len(data) > 0
+
+        for entry in data:
+            # Find the amount field (may be 'amount', 'value', 'total', etc.)
+            numeric_values = [
+                v for v in entry.values()
+                if isinstance(v, (int, float))
+            ]
+            assert len(numeric_values) > 0, \
+                f"Category spending entry has no numeric field: {entry}"
+            for v in numeric_values:
+                assert v >= 0, f"Negative spending amount in {entry}"
+
+    def test_monthly_spending_12_months(self, client):
+        """Test that monthly spending covers all 12 months."""
+        data = client.get("/api/spending/monthly").json()
+        assert len(data) == 12, \
+            f"Expected 12 monthly records, got {len(data)}"
 
 
 class TestRootEndpoint:

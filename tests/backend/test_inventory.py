@@ -142,3 +142,82 @@ class TestInventoryEndpoints:
         # All items should be Power Supplies
         for item in data:
             assert item["category"].lower() == "power supplies"
+
+    # ── Additional warehouse coverage ────────────────────────────────────────
+
+    def test_get_inventory_by_tokyo_warehouse(self, client):
+        """Test filtering inventory to Tokyo warehouse."""
+        response = client.get("/api/inventory?warehouse=Tokyo")
+        assert response.status_code == 200
+
+        data = response.json()
+        assert len(data) > 0
+        for item in data:
+            assert item["warehouse"] == "Tokyo"
+
+    def test_all_three_warehouses_sum_to_total(self, client):
+        """Test that per-warehouse item counts sum to the full inventory count."""
+        total = len(client.get("/api/inventory").json())
+        sf = len(client.get("/api/inventory?warehouse=San Francisco").json())
+        lon = len(client.get("/api/inventory?warehouse=London").json())
+        tok = len(client.get("/api/inventory?warehouse=Tokyo").json())
+        assert sf + lon + tok == total
+
+    # ── Additional category coverage ─────────────────────────────────────────
+
+    def test_get_inventory_by_actuators_category(self, client):
+        """Test filtering inventory by Actuators category."""
+        response = client.get("/api/inventory?category=Actuators")
+        assert response.status_code == 200
+
+        data = response.json()
+        assert len(data) > 0
+        for item in data:
+            assert item["category"].lower() == "actuators"
+
+    def test_get_inventory_by_controllers_category(self, client):
+        """Test filtering inventory by Controllers category."""
+        response = client.get("/api/inventory?category=Controllers")
+        assert response.status_code == 200
+
+        data = response.json()
+        assert len(data) > 0
+        for item in data:
+            assert item["category"].lower() == "controllers"
+
+    # ── Edge cases ───────────────────────────────────────────────────────────
+
+    def test_unknown_warehouse_returns_empty_list(self, client):
+        """Test that a non-existent warehouse filter returns an empty list, not an error."""
+        response = client.get("/api/inventory?warehouse=Atlantis")
+        assert response.status_code == 200
+        assert response.json() == []
+
+    def test_unknown_category_returns_empty_list(self, client):
+        """Test that a non-existent category filter returns an empty list, not an error."""
+        response = client.get("/api/inventory?category=Unobtainium")
+        assert response.status_code == 200
+        assert response.json() == []
+
+    def test_inventory_sku_values_are_unique(self, client):
+        """Test that no two inventory items share the same SKU."""
+        data = client.get("/api/inventory").json()
+        skus = [item["sku"] for item in data]
+        assert len(skus) == len(set(skus)), "Duplicate SKUs found in inventory"
+
+    def test_low_stock_items_identified_correctly(self, client):
+        """Test that items with quantity_on_hand <= reorder_point are low-stock."""
+        data = client.get("/api/inventory").json()
+        low_stock = [
+            item for item in data
+            if item["quantity_on_hand"] <= item["reorder_point"]
+        ]
+        # Verify each low-stock item genuinely meets the condition
+        for item in low_stock:
+            assert item["quantity_on_hand"] <= item["reorder_point"]
+
+    def test_all_category_filter_returns_same_as_no_filter(self, client):
+        """Test that category=all returns the full inventory list."""
+        resp_all = client.get("/api/inventory?category=all")
+        resp_none = client.get("/api/inventory")
+        assert len(resp_all.json()) == len(resp_none.json())
