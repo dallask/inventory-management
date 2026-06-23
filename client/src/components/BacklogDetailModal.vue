@@ -130,7 +130,7 @@ const formatDate = (dateString) => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(6, 8, 12, 0.72);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,9 +139,10 @@ const formatDate = (dateString) => {
 }
 
 .modal-container {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  background: #252c3d;
+  border-radius: 0;
+  border: 1px solid #2d3650;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
   max-width: 700px;
   width: 100%;
   max-height: 90vh;
@@ -155,32 +156,32 @@ const formatDate = (dateString) => {
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #2d3650;
 }
 
 .modal-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #e8ecf6;
   letter-spacing: -0.025em;
 }
 
 .close-button {
   background: none;
   border: none;
-  color: #64748b;
+  color: #7e8ba0;
   cursor: pointer;
   padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
+  border-radius: 0;
   transition: all 0.15s ease;
 }
 
 .close-button:hover {
-  background: #f1f5f9;
-  color: #0f172a;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e8ecf6;
 }
 
 .modal-body {
@@ -194,19 +195,19 @@ const formatDate = (dateString) => {
   align-items: center;
   gap: 1.25rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #2d3650;
   margin-bottom: 1.5rem;
 }
 
 .shortage-icon {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  border-radius: 12px;
+  background: rgba(241, 87, 87, 0.2);
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #f15757;
   flex-shrink: 0;
 }
 
@@ -218,20 +219,20 @@ const formatDate = (dateString) => {
 .item-name {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #e8ecf6;
   margin: 0 0 0.5rem 0;
 }
 
 .item-sku {
   font-size: 0.875rem;
-  color: #64748b;
-  font-family: 'Monaco', 'Courier New', monospace;
+  color: #7e8ba0;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
 }
 
 .priority-badge {
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-size: 0.875rem;
+  padding: 2px 7px;
+  border-radius: 0;
+  font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.025em;
@@ -239,18 +240,18 @@ const formatDate = (dateString) => {
 }
 
 .priority-badge.high {
-  background: #fecaca;
-  color: #991b1b;
+  background: rgba(241, 87, 87, 0.13);
+  color: #f79898;
 }
 
 .priority-badge.medium {
-  background: #fed7aa;
-  color: #92400e;
+  background: rgba(245, 166, 35, 0.13);
+  color: #f9c97a;
 }
 
 .priority-badge.low {
-  background: #dbeafe;
-  color: #1e40af;
+  background: rgba(77, 166, 255, 0.13);
+  color: #88c5ff;
 }
 
 .shortage-summary {
@@ -262,18 +263,18 @@ const formatDate = (dateString) => {
 
 .summary-card {
   padding: 1.25rem;
-  border-radius: 10px;
-  border: 2px solid;
+  border-radius: 0;
+  border: 1px solid;
 }
 
 .summary-card.danger {
-  border-color: #fecaca;
-  background: #fef2f2;
+  border-color: #f15757;
+  background: rgba(241, 87, 87, 0.1);
 }
 
 .summary-card.warning {
-  border-color: #fed7aa;
-  background: #fffbeb;
+  border-color: #f5a623;
+  background: rgba(245, 166, 35, 0.1);
 }
 
 .summary-label {
@@ -281,22 +282,22 @@ const formatDate = (dateString) => {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #64748b;
+  color: #7e8ba0;
   margin-bottom: 0.5rem;
 }
 
 .summary-value {
   font-size: 1.875rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #e8ecf6;
 }
 
 .summary-card.danger .summary-value {
-  color: #dc2626;
+  color: #f15757;
 }
 
 .summary-card.warning .summary-value {
-  color: #f59e0b;
+  color: #f5a623;
 }
 
 .info-grid {
@@ -316,24 +317,24 @@ const formatDate = (dateString) => {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #64748b;
+  color: #7e8ba0;
 }
 
 .info-value {
   font-size: 0.938rem;
-  color: #0f172a;
+  color: #c4ccdb;
   font-weight: 500;
 }
 
 .info-value.order-id,
 .info-value.sku {
-  font-family: 'Monaco', 'Courier New', monospace;
-  color: #2563eb;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  color: #4d7cfe;
 }
 
 .modal-footer {
   padding: 1.5rem;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid #2d3650;
   display: flex;
   justify-content: flex-end;
   gap: 0.75rem;
@@ -341,20 +342,20 @@ const formatDate = (dateString) => {
 
 .btn-secondary {
   padding: 0.625rem 1.25rem;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  background: #1e2430;
+  border: 1px solid #2d3650;
+  border-radius: 0;
   font-weight: 500;
   font-size: 0.875rem;
-  color: #334155;
+  color: #c4ccdb;
   cursor: pointer;
   transition: all 0.15s ease;
   font-family: inherit;
 }
 
 .btn-secondary:hover {
-  background: #e2e8f0;
-  border-color: #cbd5e1;
+  background: #2d3650;
+  border-color: #455068;
 }
 
 /* Modal transition animations */

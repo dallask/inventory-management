@@ -156,7 +156,7 @@ const close = () => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(6, 8, 12, 0.72);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,9 +165,10 @@ const close = () => {
 }
 
 .modal-container {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  background: #252c3d;
+  border-radius: 0;
+  border: 1px solid #2d3650;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
   max-width: 600px;
   width: 100%;
   max-height: 90vh;
@@ -181,32 +182,32 @@ const close = () => {
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #2d3650;
 }
 
 .modal-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #e8ecf6;
   letter-spacing: -0.025em;
 }
 
 .close-button {
   background: none;
   border: none;
-  color: #64748b;
+  color: #7e8ba0;
   cursor: pointer;
   padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
+  border-radius: 0;
   transition: all 0.15s ease;
 }
 
 .close-button:hover {
-  background: #f1f5f9;
-  color: #0f172a;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e8ecf6;
 }
 
 .modal-body {
@@ -221,13 +222,14 @@ const close = () => {
 
 .summary-card {
   padding: 1.5rem;
-  border-radius: 10px;
+  border-radius: 0;
   text-align: center;
 }
 
 .summary-card.total {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: white;
+  background: rgba(77, 124, 254, 0.14);
+  border: 1px solid #4d7cfe;
+  color: #e8ecf6;
 }
 
 .summary-label {
@@ -235,13 +237,14 @@ const close = () => {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  opacity: 0.9;
+  color: #7e8ba0;
   margin-bottom: 0.5rem;
 }
 
 .summary-value {
   font-size: 2.25rem;
   font-weight: 700;
+  color: #e8ecf6;
 }
 
 .cost-breakdown {
@@ -252,28 +255,28 @@ const close = () => {
 
 .cost-item {
   padding: 1.25rem;
-  border-radius: 10px;
-  border: 2px solid;
+  border-radius: 0;
+  border: 1px solid;
 }
 
 .cost-item.procurement {
-  border-color: #93c5fd;
-  background: #eff6ff;
+  border-color: #4d7cfe;
+  background: rgba(77, 124, 254, 0.08);
 }
 
 .cost-item.operational {
-  border-color: #c4b5fd;
-  background: #f5f3ff;
+  border-color: #a78bfa;
+  background: rgba(167, 139, 250, 0.08);
 }
 
 .cost-item.labor {
-  border-color: #86efac;
-  background: #f0fdf4;
+  border-color: #3ed47e;
+  background: rgba(62, 212, 126, 0.08);
 }
 
 .cost-item.overhead {
-  border-color: #fcd34d;
-  background: #fffbeb;
+  border-color: #f5a623;
+  background: rgba(245, 166, 35, 0.08);
 }
 
 .cost-header {
@@ -286,7 +289,7 @@ const close = () => {
 .cost-icon {
   width: 48px;
   height: 48px;
-  border-radius: 10px;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -294,23 +297,23 @@ const close = () => {
 }
 
 .cost-item.procurement .cost-icon {
-  background: #3b82f6;
+  background: #4d7cfe;
   color: white;
 }
 
 .cost-item.operational .cost-icon {
-  background: #8b5cf6;
+  background: #a78bfa;
   color: white;
 }
 
 .cost-item.labor .cost-icon {
-  background: #10b981;
-  color: white;
+  background: #3ed47e;
+  color: #0e1014;
 }
 
 .cost-item.overhead .cost-icon {
-  background: #f59e0b;
-  color: white;
+  background: #f5a623;
+  color: #0e1014;
 }
 
 .cost-info {
@@ -319,7 +322,7 @@ const close = () => {
 
 .cost-name {
   font-weight: 600;
-  color: #0f172a;
+  color: #e8ecf6;
   font-size: 1rem;
   margin-bottom: 0.25rem;
 }
@@ -327,38 +330,38 @@ const close = () => {
 .cost-amount {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #e8ecf6;
 }
 
 .cost-percentage {
   font-size: 0.875rem;
-  color: #64748b;
+  color: #7e8ba0;
   font-weight: 500;
 }
 
 .modal-footer {
   padding: 1.5rem;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid #2d3650;
   display: flex;
   justify-content: flex-end;
 }
 
 .btn-secondary {
   padding: 0.625rem 1.25rem;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  background: #1e2430;
+  border: 1px solid #2d3650;
+  border-radius: 0;
   font-weight: 500;
   font-size: 0.875rem;
-  color: #334155;
+  color: #c4ccdb;
   cursor: pointer;
   transition: all 0.15s ease;
   font-family: inherit;
 }
 
 .btn-secondary:hover {
-  background: #e2e8f0;
-  border-color: #cbd5e1;
+  background: #2d3650;
+  border-color: #455068;
 }
 
 /* Modal transition animations */

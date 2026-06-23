@@ -322,11 +322,11 @@ export default {
 }
 
 .card {
-  background: white;
-  border-radius: 12px;
+  background: #161a22;
+  border-radius: 0;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #2d3650;
 }
 
 .card-header {
@@ -336,7 +336,7 @@ export default {
 .card-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #0f172a;
+  color: #e8ecf6;
   margin: 0;
 }
 
@@ -346,21 +346,22 @@ export default {
 }
 
 .reports-table th {
-  background: #f8fafc;
+  background: #1e2430;
   padding: 0.75rem;
   text-align: left;
   font-weight: 600;
-  color: #64748b;
-  border-bottom: 2px solid #e2e8f0;
+  color: #7e8ba0;
+  border-bottom: 2px solid #2d3650;
 }
 
 .reports-table td {
   padding: 0.75rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #1e2430;
+  color: #c4ccdb;
 }
 
 .reports-table tr:hover {
-  background: #f8fafc;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .chart-container {
@@ -393,20 +394,20 @@ export default {
 
 .bar {
   width: 100%;
-  background: linear-gradient(to top, #3b82f6, #60a5fa);
-  border-radius: 4px 4px 0 0;
+  background: linear-gradient(to top, #4d7cfe, #6b93ff);
+  border-radius: 0;
   transition: all 0.3s;
   cursor: pointer;
 }
 
 .bar:hover {
-  background: linear-gradient(to top, #2563eb, #3b82f6);
+  background: linear-gradient(to top, #6b93ff, #88aaff);
 }
 
 .bar-label {
   margin-top: 0.5rem;
   font-size: 0.75rem;
-  color: #64748b;
+  color: #7e8ba0;
   text-align: center;
   transform: rotate(-45deg);
   white-space: nowrap;
@@ -421,68 +422,70 @@ export default {
 }
 
 .stat-card {
-  background: white;
-  border-radius: 12px;
+  background: #161a22;
+  border-radius: 0;
   padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border-left: 4px solid #3b82f6;
+  border: 1px solid #2d3650;
+  border-left: 4px solid #4d7cfe;
 }
 
 .stat-label {
   font-size: 0.875rem;
-  color: #64748b;
+  color: #7e8ba0;
   margin-bottom: 0.5rem;
 }
 
 .stat-value {
   font-size: 1.875rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #e8ecf6;
 }
 
 .badge {
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
 }
 
 .badge.success {
-  background: #dcfce7;
-  color: #166534;
+  background: rgba(62, 212, 126, 0.13);
+  color: #7fd8a6;
 }
 
 .badge.warning {
-  background: #fef3c7;
-  color: #92400e;
+  background: rgba(245, 166, 35, 0.13);
+  color: #f9c97a;
 }
 
 .badge.danger {
-  background: #fee2e2;
-  color: #991b1b;
+  background: rgba(241, 87, 87, 0.13);
+  color: #f79898;
 }
 
 .positive-change {
-  color: #16a34a;
+  color: #3ed47e;
   font-weight: 600;
 }
 
 .negative-change {
-  color: #dc2626;
+  color: #f15757;
   font-weight: 600;
 }
 
 .loading {
   text-align: center;
   padding: 3rem;
-  color: #64748b;
+  color: #7e8ba0;
 }
 
 .error {
-  background: #fee2e2;
-  color: #991b1b;
+  background: rgba(241, 87, 87, 0.1);
+  color: #f79898;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 0;
+  border: 1px solid #f15757;
+  border-left: 3px solid #f15757;
   margin: 1rem 0;
 }
 </style>
