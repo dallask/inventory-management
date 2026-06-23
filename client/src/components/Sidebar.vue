@@ -22,6 +22,7 @@
         class="nav-item"
         active-class="active"
         :exact="item.path === '/'"
+        :title="collapsed ? item.label : undefined"
       >
         <span class="nav-icon" v-html="item.icon" />
         <span v-show="!collapsed" class="nav-label">{{ item.label }}</span>
@@ -262,5 +263,18 @@ export default {
 .collapse-label {
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* Center icon horizontally when collapsed */
+.sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sidebar.collapsed .collapse-btn {
+  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
 }
 </style>

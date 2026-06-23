@@ -1,6 +1,6 @@
 <template>
   <div class="app-shell" :class="{ 'sidebar-collapsed': sidebarCollapsed }">
-    <Sidebar :collapsed="sidebarCollapsed" @toggle="sidebarCollapsed = !sidebarCollapsed" />
+    <Sidebar :collapsed="sidebarCollapsed" @toggle="toggleSidebar" />
     <div class="app-main">
       <Topbar :collapsed="sidebarCollapsed">
         <LanguageSwitcher />
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { ref, onMounted, computed, watch } from 'vue'
+import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
 import { api } from './api'
 import { useAuth } from './composables/useAuth'
 import { useI18n } from './composables/useI18n'
@@ -59,10 +59,30 @@ export default {
     const showTasks = ref(false)
     const apiTasks = ref([])
 
-    // Sidebar collapse state persisted to localStorage
+    // Sidebar state: user preference (persisted) + narrow-viewport override
     const STORAGE_KEY = 'sidebar-collapsed'
-    const sidebarCollapsed = ref(localStorage.getItem(STORAGE_KEY) === 'true')
-    watch(sidebarCollapsed, v => localStorage.setItem(STORAGE_KEY, String(v)))
+    const BREAKPOINT = 1280
+
+    const userCollapsed = ref(localStorage.getItem(STORAGE_KEY) === 'true')
+    const isNarrow = ref(window.innerWidth <= BREAKPOINT)
+
+    // Effective collapsed = narrow screen OR user manually collapsed
+    const sidebarCollapsed = computed(() => isNarrow.value || userCollapsed.value)
+
+    // Persist only the user's manual preference
+    watch(userCollapsed, v => localStorage.setItem(STORAGE_KEY, String(v)))
+
+    // Toggle handler: only change user preference (not the narrow override)
+    const toggleSidebar = () => {
+      if (!isNarrow.value) {
+        userCollapsed.value = !userCollapsed.value
+      }
+    }
+
+    // Resize listener — update isNarrow, restore user pref when widening
+    const onResize = () => {
+      isNarrow.value = window.innerWidth <= BREAKPOINT
+    }
 
     // Merge mock tasks from currentUser with API tasks
     const tasks = computed(() => {
@@ -122,7 +142,12 @@ export default {
       }
     }
 
-    onMounted(loadTasks)
+    onMounted(() => {
+      loadTasks()
+      window.addEventListener('resize', onResize)
+    })
+
+    onUnmounted(() => window.removeEventListener('resize', onResize))
 
     return {
       t,
@@ -132,7 +157,8 @@ export default {
       addTask,
       deleteTask,
       toggleTask,
-      sidebarCollapsed
+      sidebarCollapsed,
+      toggleSidebar
     }
   }
 }
