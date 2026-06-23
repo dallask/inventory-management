@@ -261,21 +261,22 @@ export default {
 }
 
 .reports-table th {
-  background: #f8fafc;
+  background: var(--dk-surface-1);
   padding: 0.75rem;
   text-align: left;
   font-weight: 600;
-  color: #64748b;
-  border-bottom: 2px solid #e2e8f0;
+  color: var(--dk-text-muted);
+  border-top: 1px solid var(--dk-border);
+  border-bottom: 1px solid var(--dk-border);
 }
 
 .reports-table td {
   padding: 0.75rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--dk-border);
 }
 
 .reports-table tr:hover {
-  background: #f8fafc;
+  background: var(--dk-surface-2);
 }
 
 .chart-container {
@@ -321,19 +322,19 @@ export default {
 .bar-label {
   margin-top: 1.5rem;
   font-size: 0.75rem;
-  color: #64748b;
+  color: var(--dk-text-secondary);
   text-align: center;
   transform: rotate(-45deg);
   white-space: nowrap;
 }
 
 .positive-change {
-  color: #16a34a;
+  color: var(--dk-success);
   font-weight: 600;
 }
 
 .negative-change {
-  color: #dc2626;
+  color: var(--dk-danger);
   font-weight: 600;
 }
 </style>

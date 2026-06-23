@@ -232,9 +232,9 @@ export default {
 }
 
 .trend-card {
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
+  background: var(--dk-surface-1);
+  border: 1px solid var(--dk-border);
+  border-radius: 0;
   padding: 1.5rem;
   transition: all 0.2s ease;
 }
@@ -270,31 +270,31 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 0;
   font-size: 1.75rem;
   font-weight: 700;
   flex-shrink: 0;
 }
 
 .increasing-card .trend-icon {
-  background: #d1fae5;
-  color: #059669;
+  background: var(--dk-success-subtle);
+  color: var(--dk-success);
 }
 
 .stable-card .trend-icon {
-  background: #dbeafe;
-  color: #2563eb;
+  background: var(--dk-info-subtle);
+  color: var(--dk-info);
 }
 
 .decreasing-card .trend-icon {
-  background: #fee2e2;
-  color: #dc2626;
+  background: var(--dk-danger-subtle);
+  color: var(--dk-danger);
 }
 
 .trend-label {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #64748b;
+  color: var(--dk-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -302,7 +302,7 @@ export default {
 .trend-count {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--dk-text-heading);
   margin-top: 0.25rem;
 }
 
@@ -317,18 +317,18 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0.75rem;
-  background: #f8fafc;
-  border-radius: 6px;
+  background: var(--dk-surface-2);
+  border-radius: 0;
   transition: background 0.2s;
 }
 
 .trend-item:hover {
-  background: #f1f5f9;
+  background: var(--dk-surface-3);
 }
 
 .item-name {
   font-size: 0.875rem;
-  color: #0f172a;
+  color: var(--dk-text-heading);
   font-weight: 500;
   flex: 1;
   overflow: hidden;
@@ -344,24 +344,24 @@ export default {
 }
 
 .increasing-card .item-change {
-  color: #059669;
+  color: var(--dk-success);
 }
 
 .stable-card .item-change {
-  color: #3b82f6;
+  color: var(--dk-info);
 }
 
 .decreasing-card .item-change {
-  color: #dc2626;
+  color: var(--dk-danger);
 }
 
 .item-change.neutral {
-  color: #64748b;
+  color: var(--dk-text-muted);
 }
 
 .more-items {
   font-size: 0.813rem;
-  color: #64748b;
+  color: var(--dk-text-muted);
   font-style: italic;
   text-align: center;
   padding: 0.5rem;
