@@ -247,6 +247,18 @@ export default {
     tokyo: '東京'
   },
 
+  // Backlog
+  backlog: {
+    title: 'バックログ管理',
+    description: '在庫不足の追跡と解決',
+    highPriority: '高優先度',
+    mediumPriority: '中優先度',
+    lowPriority: '低優先度',
+    totalItems: 'バックログ総件数',
+    backlogItems: 'バックログ項目',
+    noItems: 'バックログなし - すべての注文を履行できます！'
+  },
+
   // Reports
   reports: {
     title: 'パフォーマンスレポート',

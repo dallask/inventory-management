@@ -247,6 +247,18 @@ export default {
     tokyo: 'Tokyo'
   },
 
+  // Backlog
+  backlog: {
+    title: 'Backlog Management',
+    description: 'Track and resolve inventory shortages',
+    highPriority: 'High Priority',
+    mediumPriority: 'Medium Priority',
+    lowPriority: 'Low Priority',
+    totalItems: 'Total Backlog Items',
+    backlogItems: 'Backlog Items',
+    noItems: 'No backlog items - all orders can be fulfilled!'
+  },
+
   // Reports
   reports: {
     title: 'Performance Reports',
