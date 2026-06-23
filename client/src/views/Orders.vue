@@ -210,7 +210,7 @@ export default {
 
 .items-summary {
   cursor: pointer;
-  color: #4d7cfe;
+  color: var(--dk-primary);
   font-weight: 500;
   list-style: none;
   user-select: none;
@@ -234,7 +234,7 @@ export default {
 }
 
 .items-summary:hover {
-  color: #6b93ff;
+  color: var(--dk-primary-hover);
   text-decoration: underline;
 }
 
@@ -244,8 +244,8 @@ export default {
   top: 100%;
   left: 0;
   margin-top: 0.5rem;
-  background: #1e2430;
-  border: 1px solid #2d3650;
+  background: var(--dk-surface-2);
+  border: 1px solid var(--dk-border);
   border-radius: 0;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   padding: 0.75rem;
@@ -259,7 +259,7 @@ export default {
   flex-direction: column;
   gap: 0.25rem;
   padding: 0.5rem;
-  border-bottom: 1px solid #1e2430;
+  border-bottom: 1px solid var(--dk-border-subtle);
 }
 
 .item-entry:last-child {
@@ -269,11 +269,11 @@ export default {
 .item-name {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #e8ecf6;
+  color: var(--dk-text-heading);
 }
 
 .item-meta {
   font-size: 0.813rem;
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
 }
 </style>

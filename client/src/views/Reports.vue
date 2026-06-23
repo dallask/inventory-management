@@ -322,11 +322,11 @@ export default {
 }
 
 .card {
-  background: #161a22;
+  background: var(--dk-surface-1);
   border-radius: 0;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  border: 1px solid #2d3650;
+  border: 1px solid var(--dk-border);
 }
 
 .card-header {
@@ -336,7 +336,7 @@ export default {
 .card-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #e8ecf6;
+  color: var(--dk-text-heading);
   margin: 0;
 }
 
@@ -346,18 +346,18 @@ export default {
 }
 
 .reports-table th {
-  background: #1e2430;
+  background: var(--dk-surface-2);
   padding: 0.75rem;
   text-align: left;
   font-weight: 600;
-  color: #7e8ba0;
-  border-bottom: 2px solid #2d3650;
+  color: var(--dk-text-secondary);
+  border-bottom: 2px solid var(--dk-border);
 }
 
 .reports-table td {
   padding: 0.75rem;
-  border-bottom: 1px solid #1e2430;
-  color: #c4ccdb;
+  border-bottom: 1px solid var(--dk-border-subtle);
+  color: var(--dk-text-body);
 }
 
 .reports-table tr:hover {
@@ -394,20 +394,20 @@ export default {
 
 .bar {
   width: 100%;
-  background: linear-gradient(to top, #4d7cfe, #6b93ff);
+  background: linear-gradient(to top, var(--dk-primary), var(--dk-primary-hover));
   border-radius: 0;
   transition: all 0.3s;
   cursor: pointer;
 }
 
 .bar:hover {
-  background: linear-gradient(to top, #6b93ff, #88aaff);
+  background: linear-gradient(to top, var(--dk-primary-hover), #88aaff);
 }
 
 .bar-label {
   margin-top: 0.5rem;
   font-size: 0.75rem;
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
   text-align: center;
   transform: rotate(-45deg);
   white-space: nowrap;
@@ -422,23 +422,23 @@ export default {
 }
 
 .stat-card {
-  background: #161a22;
+  background: var(--dk-surface-1);
   border-radius: 0;
   padding: 1.5rem;
-  border: 1px solid #2d3650;
-  border-left: 4px solid #4d7cfe;
+  border: 1px solid var(--dk-border);
+  border-left: 4px solid var(--dk-primary);
 }
 
 .stat-label {
   font-size: 0.875rem;
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
   margin-bottom: 0.5rem;
 }
 
 .stat-value {
   font-size: 1.875rem;
   font-weight: 700;
-  color: #e8ecf6;
+  color: var(--dk-text-heading);
 }
 
 .badge {
@@ -449,43 +449,43 @@ export default {
 }
 
 .badge.success {
-  background: rgba(62, 212, 126, 0.13);
-  color: #7fd8a6;
+  background: var(--dk-success-subtle);
+  color: var(--dk-success-text);
 }
 
 .badge.warning {
-  background: rgba(245, 166, 35, 0.13);
-  color: #f9c97a;
+  background: var(--dk-warning-subtle);
+  color: var(--dk-warning-text);
 }
 
 .badge.danger {
-  background: rgba(241, 87, 87, 0.13);
-  color: #f79898;
+  background: var(--dk-danger-subtle);
+  color: var(--dk-danger-text);
 }
 
 .positive-change {
-  color: #3ed47e;
+  color: var(--dk-success);
   font-weight: 600;
 }
 
 .negative-change {
-  color: #f15757;
+  color: var(--dk-danger);
   font-weight: 600;
 }
 
 .loading {
   text-align: center;
   padding: 3rem;
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
 }
 
 .error {
-  background: rgba(241, 87, 87, 0.1);
-  color: #f79898;
+  background: var(--dk-danger-subtle);
+  color: var(--dk-danger-text);
   padding: 1rem;
   border-radius: 0;
-  border: 1px solid #f15757;
-  border-left: 3px solid #f15757;
+  border: 1px solid var(--dk-danger);
+  border-left: 3px solid var(--dk-danger);
   margin: 1rem 0;
 }
 </style>

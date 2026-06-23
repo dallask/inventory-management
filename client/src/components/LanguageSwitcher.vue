@@ -98,23 +98,23 @@ const selectLanguage = (locale) => {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.875rem;
-  background: #1e2430;
-  border: 1px solid #2d3650;
+  background: var(--dk-surface-2);
+  border: 1px solid var(--dk-border);
   border-radius: 0;
   cursor: pointer;
   transition: all 0.2s ease;
   font-family: inherit;
   font-size: 0.875rem;
-  color: #c4ccdb;
+  color: var(--dk-text-body);
 }
 
 .language-button:hover {
-  background: #252c3d;
-  border-color: #455068;
+  background: var(--dk-surface-3);
+  border-color: var(--dk-border-strong);
 }
 
 .globe-icon {
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
   flex-shrink: 0;
 }
 
@@ -123,7 +123,7 @@ const selectLanguage = (locale) => {
 }
 
 .chevron {
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
   transition: transform 0.2s ease;
   flex-shrink: 0;
 }
@@ -137,8 +137,8 @@ const selectLanguage = (locale) => {
   top: calc(100% + 0.5rem);
   right: 0;
   min-width: 160px;
-  background: #1e2430;
-  border: 1px solid #2d3650;
+  background: var(--dk-surface-2);
+  border: 1px solid var(--dk-border);
   border-radius: 0;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   z-index: 1000;
@@ -160,7 +160,7 @@ const selectLanguage = (locale) => {
   font-family: inherit;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #c4ccdb;
+  color: var(--dk-text-body);
 }
 
 .dropdown-item:hover {
@@ -168,8 +168,8 @@ const selectLanguage = (locale) => {
 }
 
 .dropdown-item.active {
-  background: rgba(77, 124, 254, 0.14);
-  color: #4d7cfe;
+  background: var(--dk-primary-subtle);
+  color: var(--dk-primary);
 }
 
 .language-name {
@@ -177,7 +177,7 @@ const selectLanguage = (locale) => {
 }
 
 .check-icon {
-  color: #4d7cfe;
+  color: var(--dk-primary);
   flex-shrink: 0;
 }
 </style>

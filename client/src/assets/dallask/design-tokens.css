@@ -1,0 +1,226 @@
+/* Dallask Design System — design tokens
+ * Source: https://claude.ai/design/p/25de749f-67d7-4daf-9e02-c36cef1b96f0
+ * Combines: tokens/colors.css · tokens/typography.css · tokens/spacing.css
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ─── Colors ─────────────────────────────────────────────────────────────── */
+:root {
+  /* Base palette: Blues */
+  --dk-blue-50:  #e8efff;
+  --dk-blue-100: #cddaff;
+  --dk-blue-200: #9ab5ff;
+  --dk-blue-300: #7096ff;
+  --dk-blue-400: #4d7cfe;
+  --dk-blue-500: #2555e8;
+  --dk-blue-600: #1840cc;
+  --dk-blue-700: #0f2ea8;
+  --dk-blue-800: #081f84;
+  --dk-blue-900: #041260;
+
+  /* Base palette: Grays */
+  --dk-gray-50:  #edf0f5;
+  --dk-gray-100: #d6dce8;
+  --dk-gray-200: #adb8cc;
+  --dk-gray-300: #8694ae;
+  --dk-gray-400: #627090;
+  --dk-gray-500: #4a5570;
+  --dk-gray-600: #353d54;
+  --dk-gray-700: #272d3f;
+  --dk-gray-800: #1a1f2e;
+  --dk-gray-900: #0e1014;
+
+  /* Semantic colors */
+  --dk-green-400: #3ed47e;
+  --dk-green-500: #28b865;
+  --dk-green-subtle: rgba(62, 212, 126, 0.13);
+
+  --dk-red-400:   #f15757;
+  --dk-red-500:   #d93f3f;
+  --dk-red-subtle: rgba(241, 87, 87, 0.13);
+
+  --dk-amber-400: #f5a623;
+  --dk-amber-500: #d98c10;
+  --dk-amber-subtle: rgba(245, 166, 35, 0.13);
+
+  --dk-cyan-400:  #4da6ff;
+  --dk-cyan-500:  #2888e8;
+  --dk-cyan-subtle: rgba(77, 166, 255, 0.13);
+
+  /* Surface layers */
+  --dk-bg:        #0e1014;
+  --dk-surface-1: #161a22;
+  --dk-surface-2: #1e2430;
+  --dk-surface-3: #252c3d;
+
+  /* Borders */
+  --dk-border-subtle: #1e2430;
+  --dk-border:        #2d3650;
+  --dk-border-strong: #455068;
+  --dk-border-focus:  #4d7cfe;
+
+  /* Text */
+  --dk-text-heading:   #e8ecf6;
+  --dk-text-body:      #c4ccdb;
+  --dk-text-secondary: #7e8ba0;
+  --dk-text-muted:     #4d5770;
+  --dk-text-disabled:  #353d54;
+  --dk-text-inverse:   #0e1014;
+  --dk-text-on-accent: #ffffff;
+
+  /* Interactive */
+  --dk-primary:        #4d7cfe;
+  --dk-primary-hover:  #6b93ff;
+  --dk-primary-active: #3563e0;
+  --dk-primary-subtle: rgba(77, 124, 254, 0.14);
+  --dk-primary-text:   #a0bcff;
+
+  --dk-success:        var(--dk-green-400);
+  --dk-success-hover:  var(--dk-green-500);
+  --dk-success-subtle: var(--dk-green-subtle);
+  --dk-success-text:   #7fd8a6;
+
+  --dk-danger:         var(--dk-red-400);
+  --dk-danger-hover:   var(--dk-red-500);
+  --dk-danger-subtle:  var(--dk-red-subtle);
+  --dk-danger-text:    #f79898;
+
+  --dk-warning:        var(--dk-amber-400);
+  --dk-warning-hover:  var(--dk-amber-500);
+  --dk-warning-subtle: var(--dk-amber-subtle);
+  --dk-warning-text:   #f9c97a;
+
+  --dk-info:           var(--dk-cyan-400);
+  --dk-info-hover:     var(--dk-cyan-500);
+  --dk-info-subtle:    var(--dk-cyan-subtle);
+  --dk-info-text:      #88c5ff;
+
+  --dk-overlay: rgba(6, 8, 12, 0.72);
+
+  /* ─── Typography ──────────────────────────────────────────────────────── */
+  --dk-font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --dk-font-body:    'DM Sans', system-ui, -apple-system, sans-serif;
+  --dk-font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  /* Type scale */
+  --dk-text-2xs:  0.6875rem;   /* 11px */
+  --dk-text-xs:   0.75rem;     /* 12px */
+  --dk-text-sm:   0.8125rem;   /* 13px */
+  --dk-text-base: 0.875rem;    /* 14px */
+  --dk-text-md:   1rem;        /* 16px */
+  --dk-text-lg:   1.125rem;    /* 18px */
+  --dk-text-xl:   1.25rem;     /* 20px */
+  --dk-text-2xl:  1.5rem;      /* 24px */
+  --dk-text-3xl:  1.875rem;    /* 30px */
+  --dk-text-4xl:  2.25rem;     /* 36px */
+  --dk-text-5xl:  3rem;        /* 48px */
+
+  /* Line heights */
+  --dk-leading-none:    1;
+  --dk-leading-tight:   1.15;
+  --dk-leading-snug:    1.3;
+  --dk-leading-normal:  1.4;
+  --dk-leading-relaxed: 1.6;
+  --dk-leading-loose:   1.75;
+
+  /* Letter spacing */
+  --dk-tracking-tight:  -0.03em;
+  --dk-tracking-snug:   -0.015em;
+  --dk-tracking-normal:  0em;
+  --dk-tracking-wide:    0.04em;
+  --dk-tracking-caps:    0.08em;
+
+  /* Font weights */
+  --dk-weight-light:    300;
+  --dk-weight-regular:  400;
+  --dk-weight-medium:   500;
+  --dk-weight-semibold: 600;
+  --dk-weight-bold:     700;
+  --dk-weight-black:    900;
+
+  /* ─── Spacing ─────────────────────────────────────────────────────────── */
+  --dk-space-0:  0;
+  --dk-space-1:  0.1875rem;   /*  3px */
+  --dk-space-2:  0.375rem;    /*  6px */
+  --dk-space-3:  0.625rem;    /* 10px */
+  --dk-space-4:  0.875rem;    /* 14px */
+  --dk-space-5:  1.25rem;     /* 20px */
+  --dk-space-6:  1.75rem;     /* 28px */
+  --dk-space-7:  2.5rem;      /* 40px */
+  --dk-space-8:  3.5rem;      /* 56px */
+  --dk-space-9:  5rem;        /* 80px */
+  --dk-space-10: 7rem;        /* 112px */
+
+  /* Component padding */
+  --dk-padding-xs:    0.25rem 0.5rem;
+  --dk-padding-sm:    0.3125rem 0.75rem;
+  --dk-padding-md:    0.4375rem 1rem;
+  --dk-padding-lg:    0.625rem 1.25rem;
+  --dk-padding-card:  1.25rem;
+  --dk-padding-panel: 1.5rem;
+
+  /* Border widths */
+  --dk-border-width-thin:  1px;
+  --dk-border-width:       1px;
+  --dk-border-width-thick: 2px;
+
+  /* Border radius — sharp corners by default; pill for status chips */
+  --dk-radius-none: 0;
+  --dk-radius-sm:   0;
+  --dk-radius-md:   0;
+  --dk-radius-lg:   0;
+  --dk-radius-pill: 9999px;
+
+  /* Z-index */
+  --dk-z-below:   -1;
+  --dk-z-base:     0;
+  --dk-z-raised:  10;
+  --dk-z-sticky: 100;
+  --dk-z-overlay: 200;
+  --dk-z-modal:   300;
+  --dk-z-toast:   400;
+  --dk-z-tooltip: 500;
+
+  /* Layout */
+  --dk-sidebar-width:     240px;
+  --dk-topbar-height:     52px;
+  --dk-content-max:       1280px;
+}
+
+/* ─── Typography hierarchy ───────────────────────────────────────────────── */
+h1, h2, h3, .dk-serif {
+  font-family: var(--dk-font-display);
+  letter-spacing: var(--dk-tracking-snug);
+  line-height: var(--dk-leading-tight);
+  color: var(--dk-text-heading);
+}
+
+h4, h5, h6 {
+  font-family: var(--dk-font-body);
+  font-weight: var(--dk-weight-semibold);
+  letter-spacing: var(--dk-tracking-snug);
+  line-height: var(--dk-leading-snug);
+  color: var(--dk-text-heading);
+}
+
+code, pre, kbd, samp, .dk-mono {
+  font-family: var(--dk-font-mono);
+  font-size: 0.92em;
+}
+
+/* ─── Utility classes ────────────────────────────────────────────────────── */
+.dk-label {
+  font-family: var(--dk-font-body);
+  font-size: var(--dk-text-xs);
+  font-weight: var(--dk-weight-medium);
+  letter-spacing: var(--dk-tracking-caps);
+  text-transform: uppercase;
+  color: var(--dk-text-muted);
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--dk-border); }
+::-webkit-scrollbar-thumb:hover { background: var(--dk-border-strong); }

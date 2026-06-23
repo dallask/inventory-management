@@ -125,8 +125,8 @@ const handleLogout = () => {
   align-items: center;
   gap: 0.625rem;
   padding: 0.5rem 0.875rem;
-  background: #1e2430;
-  border: 1px solid #2d3650;
+  background: var(--dk-surface-2);
+  border: 1px solid var(--dk-border);
   border-radius: 0;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -134,15 +134,15 @@ const handleLogout = () => {
 }
 
 .profile-button:hover {
-  background: #252c3d;
-  border-color: #455068;
+  background: var(--dk-surface-3);
+  border-color: var(--dk-border-strong);
 }
 
 .avatar {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4d7cfe 0%, #3b64d9 100%);
+  background: linear-gradient(135deg, var(--dk-primary) 0%, #3b64d9 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -155,11 +155,11 @@ const handleLogout = () => {
 .profile-name {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #c4ccdb;
+  color: var(--dk-text-body);
 }
 
 .chevron {
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
   transition: transform 0.2s ease;
 }
 
@@ -172,8 +172,8 @@ const handleLogout = () => {
   top: calc(100% + 0.5rem);
   right: 0;
   min-width: 280px;
-  background: #1e2430;
-  border: 1px solid #2d3650;
+  background: var(--dk-surface-2);
+  border: 1px solid var(--dk-border);
   border-radius: 0;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   z-index: 1000;
@@ -185,14 +185,14 @@ const handleLogout = () => {
   display: flex;
   gap: 0.875rem;
   align-items: center;
-  background: #161a22;
+  background: var(--dk-surface-1);
 }
 
 .avatar-large {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4d7cfe 0%, #3b64d9 100%);
+  background: linear-gradient(135deg, var(--dk-primary) 0%, #3b64d9 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -210,14 +210,14 @@ const handleLogout = () => {
 
 .user-name {
   font-weight: 600;
-  color: #e8ecf6;
+  color: var(--dk-text-heading);
   font-size: 0.938rem;
   margin-bottom: 0.25rem;
 }
 
 .user-email {
   font-size: 0.813rem;
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -225,7 +225,7 @@ const handleLogout = () => {
 
 .dropdown-divider {
   height: 1px;
-  background: #2d3650;
+  background: var(--dk-border);
   margin: 0.5rem 0;
 }
 
@@ -243,7 +243,7 @@ const handleLogout = () => {
   font-family: inherit;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #c4ccdb;
+  color: var(--dk-text-body);
 }
 
 .dropdown-item:hover {
@@ -251,25 +251,25 @@ const handleLogout = () => {
 }
 
 .dropdown-item svg {
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
   flex-shrink: 0;
 }
 
 .dropdown-item.logout {
-  color: #f15757;
+  color: var(--dk-danger);
 }
 
 .dropdown-item.logout svg {
-  color: #f15757;
+  color: var(--dk-danger);
 }
 
 .dropdown-item.logout:hover {
-  background: rgba(241, 87, 87, 0.1);
+  background: var(--dk-danger-subtle);
 }
 
 .task-badge {
   margin-left: auto;
-  background: #4d7cfe;
+  background: var(--dk-primary);
   color: white;
   font-size: 0.75rem;
   font-weight: 600;

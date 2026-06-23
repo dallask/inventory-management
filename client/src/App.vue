@@ -169,18 +169,13 @@ export default {
 }
 
 body {
-  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
-  background: #0e1014;
-  color: #c4ccdb;
+  font-family: var(--dk-font-body);
+  background: var(--dk-bg);
+  color: var(--dk-text-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 0.875rem;
 }
-
-::-webkit-scrollbar { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #2d3650; }
-::-webkit-scrollbar-thumb:hover { background: #455068; }
 
 .app {
   display: flex;
@@ -189,8 +184,8 @@ body {
 }
 
 .top-nav {
-  background: #161a22;
-  border-bottom: 1px solid #2d3650;
+  background: var(--dk-surface-1);
+  border-bottom: 1px solid var(--dk-border);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -223,17 +218,17 @@ body {
 .logo h1 {
   font-size: 1.375rem;
   font-weight: 700;
-  color: #e8ecf6;
+  color: var(--dk-text-heading);
   letter-spacing: -0.025em;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--dk-font-body);
 }
 
 .subtitle {
   font-size: 0.813rem;
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
   font-weight: 400;
   padding-left: 0.75rem;
-  border-left: 1px solid #2d3650;
+  border-left: 1px solid var(--dk-border);
 }
 
 .nav-tabs {
@@ -243,7 +238,7 @@ body {
 
 .nav-tabs a {
   padding: 0.625rem 1.25rem;
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.875rem;
@@ -253,12 +248,12 @@ body {
 }
 
 .nav-tabs a:hover {
-  color: #e8ecf6;
+  color: var(--dk-text-heading);
   background: rgba(255, 255, 255, 0.06);
 }
 
 .nav-tabs a.active {
-  color: #4d7cfe;
+  color: var(--dk-primary);
   background: transparent;
 }
 
@@ -269,7 +264,7 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background: #4d7cfe;
+  background: var(--dk-primary);
 }
 
 .main-content {
@@ -287,13 +282,13 @@ body {
 .page-header h2 {
   font-size: 1.875rem;
   font-weight: 700;
-  color: #e8ecf6;
+  color: var(--dk-text-heading);
   margin-bottom: 0.375rem;
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--dk-font-display);
 }
 
 .page-header p {
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
   font-size: 0.938rem;
 }
 
@@ -305,20 +300,20 @@ body {
 }
 
 .stat-card {
-  background: #161a22;
+  background: var(--dk-surface-1);
   padding: 1.25rem;
   border-radius: 0;
-  border: 1px solid #2d3650;
+  border: 1px solid var(--dk-border);
   transition: all 0.2s ease;
 }
 
 .stat-card:hover {
-  border-color: #455068;
+  border-color: var(--dk-border-strong);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .stat-label {
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
   font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -329,31 +324,31 @@ body {
 .stat-value {
   font-size: 2.25rem;
   font-weight: 700;
-  color: #e8ecf6;
+  color: var(--dk-text-heading);
   letter-spacing: -0.025em;
 }
 
 .stat-card.warning .stat-value {
-  color: #f5a623;
+  color: var(--dk-warning);
 }
 
 .stat-card.success .stat-value {
-  color: #3ed47e;
+  color: var(--dk-success);
 }
 
 .stat-card.danger .stat-value {
-  color: #f15757;
+  color: var(--dk-danger);
 }
 
 .stat-card.info .stat-value {
-  color: #4da6ff;
+  color: var(--dk-info);
 }
 
 .card {
-  background: #161a22;
+  background: var(--dk-surface-1);
   border-radius: 0;
   padding: 1.25rem;
-  border: 1px solid #2d3650;
+  border: 1px solid var(--dk-border);
   margin-bottom: 1.25rem;
 }
 
@@ -363,13 +358,13 @@ body {
   align-items: center;
   margin-bottom: 1rem;
   padding-bottom: 0.875rem;
-  border-bottom: 1px solid #2d3650;
+  border-bottom: 1px solid var(--dk-border);
 }
 
 .card-title {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #e8ecf6;
+  color: var(--dk-text-heading);
   letter-spacing: -0.025em;
 }
 
@@ -383,16 +378,16 @@ table {
 }
 
 thead {
-  background: #1e2430;
-  border-top: 1px solid #2d3650;
-  border-bottom: 1px solid #2d3650;
+  background: var(--dk-surface-2);
+  border-top: 1px solid var(--dk-border);
+  border-bottom: 1px solid var(--dk-border);
 }
 
 th {
   text-align: left;
   padding: 0.5rem 0.75rem;
   font-weight: 600;
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -400,8 +395,8 @@ th {
 
 td {
   padding: 0.5rem 0.75rem;
-  border-top: 1px solid #1e2430;
-  color: #c4ccdb;
+  border-top: 1px solid var(--dk-border-subtle);
+  color: var(--dk-text-body);
   font-size: 0.875rem;
 }
 
@@ -424,67 +419,67 @@ tbody tr:hover {
 }
 
 .badge.success {
-  background: rgba(62, 212, 126, 0.13);
-  color: #7fd8a6;
+  background: var(--dk-success-subtle);
+  color: var(--dk-success-text);
 }
 
 .badge.warning {
-  background: rgba(245, 166, 35, 0.13);
-  color: #f9c97a;
+  background: var(--dk-warning-subtle);
+  color: var(--dk-warning-text);
 }
 
 .badge.danger {
-  background: rgba(241, 87, 87, 0.13);
-  color: #f79898;
+  background: var(--dk-danger-subtle);
+  color: var(--dk-danger-text);
 }
 
 .badge.info {
-  background: rgba(77, 166, 255, 0.13);
-  color: #88c5ff;
+  background: var(--dk-info-subtle);
+  color: var(--dk-info-text);
 }
 
 .badge.increasing {
-  background: rgba(62, 212, 126, 0.13);
-  color: #7fd8a6;
+  background: var(--dk-success-subtle);
+  color: var(--dk-success-text);
 }
 
 .badge.decreasing {
-  background: rgba(241, 87, 87, 0.13);
-  color: #f79898;
+  background: var(--dk-danger-subtle);
+  color: var(--dk-danger-text);
 }
 
 .badge.stable {
-  background: rgba(77, 166, 255, 0.13);
-  color: #88c5ff;
+  background: var(--dk-info-subtle);
+  color: var(--dk-info-text);
 }
 
 .badge.high {
-  background: rgba(241, 87, 87, 0.13);
-  color: #f79898;
+  background: var(--dk-danger-subtle);
+  color: var(--dk-danger-text);
 }
 
 .badge.medium {
-  background: rgba(245, 166, 35, 0.13);
-  color: #f9c97a;
+  background: var(--dk-warning-subtle);
+  color: var(--dk-warning-text);
 }
 
 .badge.low {
-  background: rgba(77, 166, 255, 0.13);
-  color: #88c5ff;
+  background: var(--dk-info-subtle);
+  color: var(--dk-info-text);
 }
 
 .loading {
   text-align: center;
   padding: 3rem;
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
   font-size: 0.938rem;
 }
 
 .error {
-  background: rgba(241, 87, 87, 0.1);
-  border: 1px solid #f15757;
-  border-left: 3px solid #f15757;
-  color: #f79898;
+  background: var(--dk-danger-subtle);
+  border: 1px solid var(--dk-danger);
+  border-left: 3px solid var(--dk-danger);
+  color: var(--dk-danger-text);
   padding: 1rem;
   border-radius: 0;
   margin: 1rem 0;

@@ -234,7 +234,7 @@ export default {
 }
 
 .page-header p {
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
   font-size: 0.875rem;
 }
 
@@ -244,13 +244,13 @@ export default {
   align-items: center;
   gap: 1.5rem;
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid #2d3650;
+  border-bottom: 1px solid var(--dk-border);
 }
 
 .card-title {
   font-size: 1rem;
   font-weight: 600;
-  color: #e8ecf6;
+  color: var(--dk-text-heading);
   margin: 0;
 }
 
@@ -266,29 +266,29 @@ export default {
   left: 0.75rem;
   width: 18px;
   height: 18px;
-  color: #4d5770;
+  color: var(--dk-text-muted);
   pointer-events: none;
 }
 
 .search-input {
   width: 100%;
   padding: 0.5rem 2.5rem 0.5rem 2.5rem;
-  border: 1px solid #2d3650;
+  border: 1px solid var(--dk-border);
   border-radius: 0;
   font-size: 0.875rem;
-  color: #c4ccdb;
-  background: #161a22;
+  color: var(--dk-text-body);
+  background: var(--dk-surface-1);
   transition: all 0.2s;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #4d7cfe;
-  background: #1e2430;
+  border-color: var(--dk-border-focus);
+  background: var(--dk-surface-2);
 }
 
 .search-input::placeholder {
-  color: #4d5770;
+  color: var(--dk-text-muted);
 }
 
 .clear-search {
@@ -301,14 +301,14 @@ export default {
   background: transparent;
   border: none;
   border-radius: 0;
-  color: #4d5770;
+  color: var(--dk-text-muted);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .clear-search:hover {
-  background: #2d3650;
-  color: #7e8ba0;
+  background: var(--dk-border);
+  color: var(--dk-text-secondary);
 }
 
 .clear-search svg {
@@ -320,11 +320,11 @@ export default {
 .error {
   padding: 2rem;
   text-align: center;
-  color: #7e8ba0;
+  color: var(--dk-text-secondary);
 }
 
 .error {
-  color: #f15757;
+  color: var(--dk-danger);
 }
 
 .clickable-row {
