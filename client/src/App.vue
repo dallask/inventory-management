@@ -166,33 +166,34 @@ export default {
 
 <style>
 :root {
-  --sidebar-width: 240px;
-  --sidebar-collapsed-width: 64px;
-  --sidebar-bg: #0f172a;
-  --sidebar-border: #1e293b;
-  --sidebar-item-hover: #1e293b;
-  --sidebar-item-active-bg: #1d4ed8;
-  --sidebar-item-active-text: #ffffff;
-  --sidebar-text: #94a3b8;
-  --sidebar-text-hover: #f1f5f9;
+  /* Map app vars to Dallask tokens */
+  --sidebar-width: var(--dk-sidebar-width);
+  --sidebar-collapsed-width: var(--dk-sidebar-collapsed);
+  --sidebar-bg: var(--dk-surface-2);
+  --sidebar-border: var(--dk-border);
+  --sidebar-item-hover: var(--dk-surface-3);
+  --sidebar-item-active-bg: var(--dk-primary);
+  --sidebar-item-active-text: var(--dk-text-on-accent);
+  --sidebar-text: var(--dk-text-secondary);
+  --sidebar-text-hover: var(--dk-text-heading);
   --sidebar-icon-size: 20px;
-  --topbar-height: 56px;
-  --topbar-bg: #0f172a;
-  --topbar-border: #1e293b;
-  --content-bg: #0f172a;
+  --topbar-height: var(--dk-topbar-height);
+  --topbar-bg: var(--dk-surface-2);
+  --topbar-border: var(--dk-border);
+  --content-bg: var(--dk-bg);
   --content-padding: 1.75rem 2rem;
-  --surface-1: #1e293b;
-  --surface-2: #253347;
-  --border-color: #334155;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-muted: #475569;
-  --accent: #3b82f6;
-  --accent-hover: #2563eb;
-  --status-green: #22c55e;
-  --status-blue: #3b82f6;
-  --status-amber: #f59e0b;
-  --status-red: #f43f5e;
+  --surface-1: var(--dk-surface-1);
+  --surface-2: var(--dk-surface-2);
+  --border-color: var(--dk-border);
+  --text-primary: var(--dk-text-heading);
+  --text-secondary: var(--dk-text-secondary);
+  --text-muted: var(--dk-text-muted);
+  --accent: var(--dk-primary);
+  --accent-hover: var(--dk-primary-hover);
+  --status-green: var(--dk-success);
+  --status-blue: var(--dk-info);
+  --status-amber: var(--dk-warning);
+  --status-red: var(--dk-danger);
   --transition-sidebar: width 0.2s ease;
   --transition-fast: 0.15s ease;
 }
@@ -204,7 +205,7 @@ export default {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--dk-font-body);
   background: var(--content-bg);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
@@ -241,9 +242,10 @@ body {
 }
 
 .page-header h2 {
+  font-family: var(--dk-font-display);
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--dk-text-heading);
   letter-spacing: -0.025em;
   margin-bottom: 0.25rem;
 }
@@ -265,13 +267,13 @@ body {
 .stat-card {
   background: var(--surface-1);
   padding: 1.25rem 1.5rem;
-  border-radius: 10px;
+  border-radius: 0;
   border: 1px solid var(--border-color);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .stat-card:hover {
-  border-color: #475569;
+  border-color: var(--dk-border-strong);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
@@ -291,15 +293,15 @@ body {
   letter-spacing: -0.025em;
 }
 
-.stat-card.warning .stat-value { color: var(--status-amber); }
-.stat-card.success .stat-value { color: var(--status-green); }
-.stat-card.danger  .stat-value { color: var(--status-red); }
-.stat-card.info    .stat-value { color: var(--status-blue); }
+.stat-card.warning .stat-value { color: var(--dk-warning); }
+.stat-card.success .stat-value { color: var(--dk-success); }
+.stat-card.danger  .stat-value { color: var(--dk-danger); }
+.stat-card.info    .stat-value { color: var(--dk-info); }
 
 /* Card */
 .card {
   background: var(--surface-1);
-  border-radius: 10px;
+  border-radius: 0;
   padding: 1.25rem 1.5rem;
   border: 1px solid var(--border-color);
   margin-bottom: 1.25rem;
@@ -332,7 +334,7 @@ table {
 }
 
 thead {
-  background: #0f172a;
+  background: var(--dk-surface-1);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 }
@@ -349,7 +351,7 @@ th {
 
 td {
   padding: 0.5rem 0.75rem;
-  border-top: 1px solid #1e293b;
+  border-top: 1px solid var(--dk-border-subtle);
   color: var(--text-primary);
   font-size: 0.875rem;
 }
@@ -366,23 +368,23 @@ tbody tr:hover {
 .badge {
   display: inline-block;
   padding: 0.25rem 0.65rem;
-  border-radius: 5px;
+  border-radius: 0;
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
-.badge.success    { background: #14532d; color: #86efac; }
-.badge.warning    { background: #78350f; color: #fde68a; }
-.badge.danger     { background: #7f1d1d; color: #fca5a5; }
-.badge.info       { background: #1e3a5f; color: #93c5fd; }
-.badge.increasing { background: #14532d; color: #86efac; }
-.badge.decreasing { background: #7f1d1d; color: #fca5a5; }
-.badge.stable     { background: #1e1b4b; color: #c4b5fd; }
-.badge.high       { background: #7f1d1d; color: #fca5a5; }
-.badge.medium     { background: #78350f; color: #fde68a; }
-.badge.low        { background: #1e3a5f; color: #93c5fd; }
+.badge.success    { background: var(--dk-success-subtle); color: var(--dk-success-text); }
+.badge.warning    { background: var(--dk-warning-subtle); color: var(--dk-warning-text); }
+.badge.danger     { background: var(--dk-danger-subtle);  color: var(--dk-danger-text); }
+.badge.info       { background: var(--dk-info-subtle);    color: var(--dk-info-text); }
+.badge.increasing { background: var(--dk-success-subtle); color: var(--dk-success-text); }
+.badge.decreasing { background: var(--dk-danger-subtle);  color: var(--dk-danger-text); }
+.badge.stable     { background: var(--dk-primary-subtle); color: var(--dk-primary-text); }
+.badge.high       { background: var(--dk-danger-subtle);  color: var(--dk-danger-text); }
+.badge.medium     { background: var(--dk-warning-subtle); color: var(--dk-warning-text); }
+.badge.low        { background: var(--dk-info-subtle);    color: var(--dk-info-text); }
 
 /* Loading / error */
 .loading {
@@ -393,11 +395,11 @@ tbody tr:hover {
 }
 
 .error {
-  background: #450a0a;
-  border: 1px solid #7f1d1d;
-  color: #fca5a5;
+  background: var(--dk-danger-subtle);
+  border: 1px solid var(--dk-danger);
+  color: var(--dk-danger-text);
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 0;
   margin: 1rem 0;
   font-size: 0.875rem;
 }

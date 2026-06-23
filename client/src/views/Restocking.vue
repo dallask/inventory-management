@@ -201,7 +201,7 @@ export default {
 .budget-label {
   font-size: 0.938rem;
   font-weight: 600;
-  color: #64748b;
+  color: var(--dk-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -209,52 +209,58 @@ export default {
 .budget-amount {
   font-size: 2rem;
   font-weight: 700;
-  color: #2563eb;
+  color: var(--dk-primary);
   letter-spacing: -0.025em;
 }
 
 .budget-slider {
   width: 100%;
-  height: 6px;
+  height: 16px;
   -webkit-appearance: none;
   appearance: none;
-  background: #e2e8f0;
-  border-radius: 3px;
+  background: transparent;
   outline: none;
   cursor: pointer;
+  display: block;
+}
+
+.budget-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 0;
+  background: var(--dk-surface-3);
 }
 
 .budget-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: #2563eb;
+  background: var(--dk-primary);
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.4);
+  border: 2px solid var(--dk-surface-1);
+  margin-top: -6px;
   transition: background 0.15s ease, box-shadow 0.15s ease;
 }
 
 .budget-slider::-webkit-slider-thumb:hover {
-  background: #1d4ed8;
-  box-shadow: 0 1px 6px rgba(37, 99, 235, 0.5);
+  background: var(--dk-primary-hover);
+  box-shadow: 0 0 0 3px var(--dk-primary-subtle);
+}
+
+.budget-slider::-moz-range-track {
+  height: 4px;
+  background: var(--dk-surface-3);
+  border: none;
 }
 
 .budget-slider::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: #2563eb;
+  background: var(--dk-primary);
   cursor: pointer;
-  border: none;
-  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.4);
-}
-
-.budget-slider::-webkit-slider-runnable-track {
-  height: 6px;
-  border-radius: 3px;
-  background: #e2e8f0;
+  border: 2px solid var(--dk-surface-1);
 }
 
 .slider-range-labels {
@@ -262,20 +268,20 @@ export default {
   justify-content: space-between;
   margin-top: 0.5rem;
   font-size: 0.813rem;
-  color: #94a3b8;
+  color: var(--dk-text-muted);
   font-weight: 500;
 }
 
 .card-subtitle {
   font-size: 0.875rem;
-  color: #64748b;
+  color: var(--dk-text-secondary);
   font-weight: 500;
 }
 
 .empty-state {
   padding: 2rem;
   text-align: center;
-  color: #64748b;
+  color: var(--dk-text-secondary);
   font-size: 0.938rem;
 }
 
@@ -286,21 +292,21 @@ export default {
 .sku-code {
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.813rem;
-  background: #f1f5f9;
+  background: var(--dk-surface-2);
   padding: 0.188rem 0.5rem;
-  border-radius: 4px;
-  color: #334155;
+  border-radius: 0;
+  color: var(--dk-text-heading);
 }
 
 .total-row {
-  background: #f8fafc;
-  border-top: 2px solid #e2e8f0;
+  background: var(--dk-surface-2);
+  border-top: 2px solid var(--dk-border);
 }
 
 .total-row td {
   font-weight: 600;
-  color: #0f172a;
-  border-top: 2px solid #e2e8f0;
+  color: var(--dk-text-heading);
+  border-top: 2px solid var(--dk-border);
 }
 
 .order-action {
@@ -308,36 +314,36 @@ export default {
   justify-content: flex-end;
   margin-top: 1.25rem;
   padding-top: 1rem;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--dk-border);
 }
 
 .place-order-btn {
-  background: #2563eb;
-  color: white;
-  padding: 0.75rem 2rem;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.938rem;
+  background: var(--dk-primary);
+  color: var(--dk-text-on-accent);
+  padding: var(--dk-padding-md);
+  border-radius: 0;
+  font-weight: var(--dk-weight-semibold);
+  font-size: var(--dk-text-sm);
   border: none;
   cursor: pointer;
   transition: background 0.15s ease;
 }
 
 .place-order-btn:hover:not(:disabled) {
-  background: #1d4ed8;
+  background: var(--dk-primary-hover);
 }
 
 .place-order-btn:disabled {
-  background: #94a3b8;
+  background: var(--dk-text-muted);
   cursor: not-allowed;
 }
 
 .success-message {
-  background: #d1fae5;
-  border: 1px solid #6ee7b7;
-  color: #065f46;
+  background: var(--dk-success-subtle);
+  border: 1px solid var(--dk-success);
+  color: var(--dk-success-text);
   padding: 0.875rem 1rem;
-  border-radius: 8px;
+  border-radius: 0;
   margin-bottom: 1rem;
   font-size: 0.938rem;
   font-weight: 500;

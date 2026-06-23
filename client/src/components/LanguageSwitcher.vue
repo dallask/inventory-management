@@ -98,23 +98,23 @@ const selectLanguage = (locale) => {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.875rem;
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  background: var(--dk-surface-1);
+  border: 1px solid var(--dk-border);
+  border-radius: 0;
   cursor: pointer;
   transition: all 0.2s ease;
   font-family: inherit;
   font-size: 0.875rem;
-  color: #334155;
+  color: var(--dk-text-body);
 }
 
 .language-button:hover {
-  background: #f8fafc;
-  border-color: #cbd5e1;
+  background: var(--dk-surface-2);
+  border-color: var(--dk-border-strong);
 }
 
 .globe-icon {
-  color: #64748b;
+  color: var(--dk-text-secondary);
   flex-shrink: 0;
 }
 
@@ -123,7 +123,7 @@ const selectLanguage = (locale) => {
 }
 
 .chevron {
-  color: #64748b;
+  color: var(--dk-text-secondary);
   transition: transform 0.2s ease;
   flex-shrink: 0;
 }
@@ -137,10 +137,10 @@ const selectLanguage = (locale) => {
   top: calc(100% + 0.5rem);
   right: 0;
   min-width: 160px;
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background: var(--dk-surface-2);
+  border: 1px solid var(--dk-border);
+  border-radius: 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   z-index: 1000;
   overflow: hidden;
 }
@@ -158,18 +158,18 @@ const selectLanguage = (locale) => {
   cursor: pointer;
   transition: background 0.15s ease;
   font-family: inherit;
-  font-size: 0.875rem;
+  font-size: var(--dk-text-sm);
   font-weight: 500;
-  color: #334155;
+  color: var(--dk-text-body);
 }
 
 .dropdown-item:hover {
-  background: #f8fafc;
+  background: var(--dk-surface-3);
 }
 
 .dropdown-item.active {
-  background: #eff6ff;
-  color: #2563eb;
+  background: var(--dk-primary-subtle);
+  color: var(--dk-primary-text);
 }
 
 .language-name {
@@ -177,7 +177,7 @@ const selectLanguage = (locale) => {
 }
 
 .check-icon {
-  color: #2563eb;
+  color: var(--dk-primary);
   flex-shrink: 0;
 }
 </style>
